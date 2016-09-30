@@ -4,12 +4,31 @@
 
 * define a pattern so infrastructure can be deployed in any app 
 fairly easily.
-* Have pool of workers running continuously
-* Have pool restart when machine reboots
-* Define mechanism for starting real pool of n workers
+* Have pool of workers running continuously ***config file***
+* Have pool restart when machine reboots ***supervisord***
+* Define mechanism for starting real pool of n workers ***supervisord***
 * Define mechanism for deploying tasks that will be run on the queue 
-could be from multiple projects.
+could be from multiple projects. ***module search paths***
 
+### Steps
+install supervisor according to [this][1]
+
+[1]: https://www.digitalocean
+.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps
+
+## using
+
+Client-side i.e. the web app/producer
+
+* pip install rq
+* create queue & enqueue job
+```
+q = Queue(connection=Redis('everythingmixedmedia.com'))
+result = q.enqueue(add,num)
+
+# check if job finished and if so what result
+if test_job.result == None:
+```
 
 ## How it works
 
