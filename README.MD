@@ -36,7 +36,7 @@ Client-side i.e. the web app/producer
 * pip install rq
 * create queue & enqueue job
 ```
-q = Queue(connection=Redis('everythingmixedmedia.com'))
+q = Queue(connection=Redis('emm.com'))
 result = q.enqueue(add,num)
 
 # check if job finished and if so what result
@@ -46,7 +46,7 @@ Note results only stay around for 1 day before auto expiring so if
 you need them make sure to check them
 
 Tasks which are rmeote executed should be written ina seperate module
-.  This should be uploaded to the task server (emm.com) and placed in
+.  This should be uploaded to the task server and placed in
  the devel/rq_tasks directory.  Note dependencies will need to be 
  installed in the rq virtualenv
  
@@ -83,7 +83,7 @@ All jobs that need to be submitted need to be defined in here
 
 ### Queue Infrastructure
 
-Consists of the Redis database (no password, listening on 6387, emm
+Consists of the Redis database (, listening on 6387, emm
 .com via bind statement in /etc/redis.conf) installed on server along
 with the python s/w including the rq s/w (for rq workers) & consumer
 .py s/w which contains the enqueued jobs.
