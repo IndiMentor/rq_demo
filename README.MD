@@ -2,19 +2,28 @@
 
 ## Todo
 
-* define a pattern so infrastructure can be deployed in any app 
-fairly easily.
-* Have pool of workers running continuously ***config file***
-* Have pool restart when machine reboots ***supervisord***
-* Define mechanism for starting real pool of n workers ***supervisord***
-* Define mechanism for deploying tasks that will be run on the queue 
-could be from multiple projects. ***module search paths***
+* ~~define a pattern so infrastructure can be deployed in any app 
+fairly easily.~~
+* ~~Have pool of workers running continuously ***config file***~~
+* ~~Have pool restart when machine reboots ***supervisord***~~
+* ~~Define mechanism for starting real pool of n workers 
+***supervisord***~~
+* ~~Define mechanism for deploying tasks that will be run on the queue 
+could be from multiple projects. ***module search paths***  Ideally 
+specified in some generic way which allows you to have multiple 
+directories one for each project / initiative  ~~
+* ~~configure results to stay around for a day~~
 
 ### Steps
 
-* install supervisor according to [this][1]
-* create settings.py & supervisor configuration according to [this][2]
-and[this][3]
+* ~~install supervisor according to [this][1]~~
+* ~~create settings.py & supervisor configuration according to [this][2]
+and [this][3]~~
+* ~~use sudo supervisorctl to start / stop etc~~
+* ~~view log files in /var/log/supervisor~~
+* ~~Path for task moduoles in settings file so can deploy multiple 
+projects~~
+* ~~tasks are added to rq_tasks direcotry under devel~~
 
 [1]: https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps
 [2]: http://python-rq.org/patterns/supervisor/
@@ -33,7 +42,14 @@ result = q.enqueue(add,num)
 # check if job finished and if so what result
 if test_job.result == None:
 ```
+Note results only stay around for 1 day before auto expiring so if 
+you need them make sure to check them
 
+Tasks which are rmeote executed should be written ina seperate module
+.  This should be uploaded to the task server (emm.com) and placed in
+ the devel/rq_tasks directory.  Note dependencies will need to be 
+ installed in the rq virtualenv
+ 
 ## How it works
 
 Using rq to enable async job execution.

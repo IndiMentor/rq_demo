@@ -6,3 +6,6 @@ from time import sleep
 def add(num):
     sleep(num)
     return num + num
+
+def mult(num):
+    return num * num
