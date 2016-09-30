@@ -13,8 +13,7 @@ could be from multiple projects. ***module search paths***
 ### Steps
 install supervisor according to [this][1]
 
-[1]: https://www.digitalocean
-.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps
+[1]: https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps
 
 ## using
 
