@@ -11,9 +11,14 @@ fairly easily.
 could be from multiple projects. ***module search paths***
 
 ### Steps
-install supervisor according to [this][1]
+
+* install supervisor according to [this][1]
+* create settings.py & supervisor configuration according to [this][2]
+and[this][3]
 
 [1]: https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps
+[2]: http://python-rq.org/patterns/supervisor/
+[3]: http://python-rq.org/docs/workers/ 
 
 ## using
 
